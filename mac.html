@@ -40,4 +40,27 @@
       <img src="./images/Mac-Terminal-icon.png" alt="">
   </div>
 </body>
+<script type="text/javascript">
+  window.onload=function(){
+    
+    var r =128;
+    var imgNodes = document.querySelectorAll("#wrap > img")
+
+    document.onmousemove=function(ev){
+      ev = ev || event;
+      for(var i =0; i<imgNodes.length;i++){
+        var a = imgNodes[i].getBoundingClientRect().left + imgNodes[i].offsetWidth/2 - ev.clientX;
+        var b = imgNodes[i].getBoundingClientRect().top + imgNodes[i].offsetHeight/2 - ev.clientY;
+        var c = Math.sqrt(a*a + b*b);
+
+        if(c>=r){
+          c=r
+        }
+        imgNodes[i].style.width= 128 - c*0.5 + "px";
+
+      }
+    }
+
+  }
+</script>
 </html>
